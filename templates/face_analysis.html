@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Analysis</title>
+    <style>
+        #results {
+            margin-top: 20px;
+            font-family: Arial, sans-serif;
+        }
+        #results h3 {
+            margin-bottom: 10px;
+        }
+        #results ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        #results ul li {
+            background: #f0f0f0;
+            margin: 5px 0;
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Live Emotion Detection</h2>
+    <div>
+        <img src="{{ url_for('video_feed') }}" alt="Video Feed">
+    </div>
+
+    <div id="results">
+        <h3>Detected Emotions</h3>
+        <ul id="emotion-list"></ul>
+    </div>
+
+    <script>
+        // Function to fetch and display emotion results
+        function fetchEmotionResults() {
+            fetch('/emotion_results')
+                .then(response => response.json())
+                .then(data => {
+                    const emotionList = document.getElementById('emotion-list');
+                    emotionList.innerHTML = ''; // Clear previous results
+
+                    data.slice(-5).forEach(item => { // Display last 5 results
+                        const listItem = document.createElement('li');
+                        listItem.textContent = `${item.timestamp}: ${item.emotion}`;
+                        emotionList.appendChild(listItem);
+                    });
+                })
+                .catch(error => console.error('Error fetching emotion results:', error));
+        }
+
+        // Fetch results every 5 seconds
+        setInterval(fetchEmotionResults, 5000);
+    </script>
+</body>
+</html>
