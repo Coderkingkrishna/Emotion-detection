@@ -183,7 +183,7 @@
                     const emotionList = document.getElementById('emotion-list');
                     emotionList.innerHTML = ''; // Clear previous results
 
-                    data.slice(-3).forEach(item => { // Display last 5 results
+                    data.slice(-3).forEach(item => { // Display last 3 results
                         const listItem = document.createElement('li');
                         listItem.textContent = `${item.timestamp}: ${item.emotion}`;
                         emotionList.appendChild(listItem);
