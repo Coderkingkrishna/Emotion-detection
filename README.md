@@ -67,19 +67,20 @@ Ensure you have *Python 3.7+* installed.
 
 ## 📂 File Structure
 
-|-- moodmap/
-|   |-- static/
-|   |   |-- styles.css (UI Styling)
-|   |   |-- images/ (Assets & Backgrounds)
-|   |-- templates/
-|   |   |-- index.html (Home Page)
-|   |   |-- face_analysis.html (Emotion Detection Page)
-|   |   |-- signup.html (Sign Up Page)
-|   |-- emotiondetector.json (Model Structure)
-|   |-- emotiondetector.h5 (Model Weights)
-|   |-- realtime.py (Main Flask App)
-|   |-- requirements.txt (Dependencies)
-|   |-- README.md (This file)
+moodmap/
+├── static/
+│   ├── styles.css  (UI Styling)
+│   ├── images/  (Assets & Backgrounds)
+├── templates/
+│   ├── index.html  (Home Page)
+│   ├── face_analysis.html  (Emotion Detection Page)
+│   ├── signup.html  (Sign Up Page)
+├── emotiondetector.json  (Model Structure)
+├── emotiondetector.h5  (Model Weights)
+├── realtime.py  (Main Flask App)
+├── requirements.txt  (Dependencies)
+├── README.md  (This file)
+
 
 
 ---
